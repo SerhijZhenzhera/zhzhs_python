@@ -47,12 +47,12 @@ class Worker:
 
 
 if __name__ == "__main__":
-    b1 = Boss(1, 'Gustav', 'Beetroot')
+    b1 = Boss(0, 'Gustav', 'Beetroot')
     b2 = Boss(1, 'Andreas', 'Beetroot')
-    b3 = Boss(1, 'Galina', 'Beetroot')
-    w1 = Worker(1, 'Vanja', 'Beetroot')
-    w2 = Worker(1, 'Sanja', 'Beetroot')
-    w3 = Worker(1, 'Danja', 'Beetroot')
+    b3 = Boss(2, 'Galina', 'Beetroot')
+    w1 = Worker(100, 'Vanja', 'Beetroot')
+    w2 = Worker(101, 'Sanja', 'Beetroot')
+    w3 = Worker(102, 'Danja', 'Beetroot')
     w1.get_boos(b1)
     w2.get_boos(b2)
     print(*b2.workers)
