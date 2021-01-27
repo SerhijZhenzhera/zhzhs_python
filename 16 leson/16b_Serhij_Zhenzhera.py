@@ -5,12 +5,23 @@ Tips: See the documentation for `range` function
 '''
 
 '''
-def in_range_result(start, end, step=1):
-    result = []
-    while start <= end:
-        result.append(start)
-        start += step
-    return result
+[https://lms.beetroot.academy/myCourses/lesson/ckir494nq67qo07365ipljwtj]
+class MyIterator:
+
+    def __init__(self, _start, _end, step=1):
+        self.ind = _start
+        self.end = end
+        self.step = step
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.ind > self.end:
+            raise StopIteration
+        val = self.ind
+        self.ind += self.step
+        return val
 '''
 
 
@@ -40,14 +51,12 @@ def in_range(*args):
         return in_range_result(*temp)
 
 
-
 if __name__ == "__main__":
     print(in_range(1, 12))
     print(in_range(1, 12, 3))
     print(in_range(1, 12, 3, 5))
     print(in_range(1, '5'))
     print(in_range(1))
-    
 
 
 '''
