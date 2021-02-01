@@ -38,10 +38,14 @@ if __name__ == "__main__":
     b = InRange(10, 100, 5)
     print(b.__contains__(13))
     print(b.__contains__(25))
+    print(13 in b)
+    print(25 in b)
     
 
 '''
 ---output---
 not 13 in range
 not 25 in range
+True
+True
 '''
