@@ -44,14 +44,14 @@ class MarkersTestCase(unittest.TestCase):
         m_4 = between_markers_1('No [b]hi', '[b]', '[/b]')
         m_5 = between_markers_1('No hi', '[b]', '[/b]')
         m_6 = between_markers_1('No <hi>', '>', '<')
-        # m_7 = between_markers_1('What <is> apple', '>', '<')
+        m_7 = between_markers_1('What <is> apple', '>', '<')
         self.assertEqual(m_1, 'apple')
         self.assertEqual(m_2, 'My new site')
         self.assertEqual(m_3, 'No')
         self.assertEqual(m_4, 'hi')
         self.assertEqual(m_5, 'No hi')
         self.assertEqual(m_6, '')
-        # self.assertEqual(m_7, '')
+        self.assertEqual(m_7, '')
         m_8 = between_markers_2('What is >apple<', '>', '<')
         m_9 = between_markers_2('<head><title>My new site</title></head>', '<title>', '</title>')
         m_10 = between_markers_2('No[/b] hi', '[b]', '[/b]')
@@ -94,6 +94,9 @@ AssertionError: ' apple' != ''
 Ran 1 test in 0.002s
 
 FAILED (failures=1)
+
+
+
 ---output---2---(without 7)
 apple
 My new site
