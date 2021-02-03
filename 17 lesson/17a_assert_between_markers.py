@@ -1,5 +1,7 @@
 '''
-You are given a string and two markers (the initial and final). You have to find a substring enclosed between these two markers. But there are a few important conditions:
+Task 1
+You are given a string and two markers (the initial and final). You have to find a substring enclosed between these two markers.
+But there are a few important conditions:
     The initial and final markers are always different.
     If there is no initial marker, then the first character should be considered the beginning of a string.
     If there is no final marker, then the last character should be considered the ending of a string.
@@ -13,6 +15,7 @@ Precondition: can't be more than one final marker and can't be more than one ini
 
 import unittest
 
+
 def between_markers_1(text, begin, end):
     if begin in text:
         text_1 = text.split(begin)
@@ -22,6 +25,7 @@ def between_markers_1(text, begin, end):
         text = text_2[0]
     print(text)
     return text
+
 
 def between_markers_2(text, begin, end):
     if begin in text:
@@ -35,11 +39,13 @@ def between_markers_2(text, begin, end):
     print(text)
     return text
 
+
 class MarkersTestCase(unittest.TestCase):
 
     def test_markers(self):
         m_1 = between_markers_1('What is >apple<', '>', '<')
-        m_2 = between_markers_1('<head><title>My new site</title></head>', '<title>', '</title>')
+        m_2 = between_markers_1(
+            '<head><title>My new site</title></head>', '<title>', '</title>')
         m_3 = between_markers_1('No[/b] hi', '[b]', '[/b]')
         m_4 = between_markers_1('No [b]hi', '[b]', '[/b]')
         m_5 = between_markers_1('No hi', '[b]', '[/b]')
@@ -53,7 +59,8 @@ class MarkersTestCase(unittest.TestCase):
         self.assertEqual(m_6, '')
         self.assertEqual(m_7, '')
         m_8 = between_markers_2('What is >apple<', '>', '<')
-        m_9 = between_markers_2('<head><title>My new site</title></head>', '<title>', '</title>')
+        m_9 = between_markers_2(
+            '<head><title>My new site</title></head>', '<title>', '</title>')
         m_10 = between_markers_2('No[/b] hi', '[b]', '[/b]')
         m_11 = between_markers_2('No [b]hi', '[b]', '[/b]')
         m_12 = between_markers_2('No hi', '[b]', '[/b]')
@@ -67,7 +74,8 @@ class MarkersTestCase(unittest.TestCase):
         self.assertEqual(m_13, '')
         self.assertEqual(m_14, '')
 
-unittest.main()        
+
+unittest.main()
 
 '''
 ---output---1---
