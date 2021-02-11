@@ -39,14 +39,14 @@ if __name__ == '__main__':
 '''
 
 
-# from typing import List, Set, Dict, Tuple, Optional (Python 3.9+)
+# from typing import List (Python 3.9+)
 
-def sum_numbers(text: str) -> 'sum of numbers in ints, but not numbers in words':
+def sum_numbers(text: str) -> int:
     words: List[str] = text.split()
-    result: int = 0
-    for word': str' in words:
+    result = 0
+    for word in words:
         try:
-            result: int += int(word)
+            result: += int(word)
         except:  # str inside word
             ValueError
     return result: int
