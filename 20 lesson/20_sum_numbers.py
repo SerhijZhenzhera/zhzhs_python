@@ -39,11 +39,11 @@ if __name__ == '__main__':
 '''
 
 
-# from typing import List (Python 3.9+)
+# from typing import List, Optional (Python 3.9+)
 
-def sum_numbers(text: str) -> int:
+def sum_numbers(text: str) -> Optional[int]:
     words: List[str] = text.split()
-    result = 0
+    result: Optional[int] = 0
     for word in words:
         try:
             result: += int(word)
