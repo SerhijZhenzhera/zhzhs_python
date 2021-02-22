@@ -1,3 +1,9 @@
+'''
+Task 2
+Read about the Fibonacci search and implement it using python. Explore its complexity and compare it to sequential, binary searches.
+'''
+
+
 # [https://medium.com/daily-python/implementing-fibonacci-search-algorithm-in-python-daily-python-27-4a6624366022]
 
 def fib_search(arr, x):

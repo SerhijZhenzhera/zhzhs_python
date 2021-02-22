@@ -1,3 +1,9 @@
+'''
+Task 1
+Implement binary search using recursion.
+'''
+
+
 def binary_search(obj: list, item: int, j=1):
     obj = sorted(obj)
     if len(obj) == 0 and j % 10 != 1:

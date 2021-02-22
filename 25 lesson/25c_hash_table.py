@@ -1,3 +1,9 @@
+'''
+Task 3
+Implement in (__contains__) len (__len__) methods for HashTable
+'''
+
+
 class HashTable:
     def __init__(self):
         self.size = 11
