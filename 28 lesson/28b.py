@@ -1,3 +1,10 @@
+'''
+Task 2
+Using the BinaryHeap class, implement a new class called PriorityQueue.
+Your PriorityQueue class should implement the constructor, plus the enqueue and dequeue methods.
+'''
+
+
 # p - position
 # 2p - left child 2p + 1 right child
 from typing import List
