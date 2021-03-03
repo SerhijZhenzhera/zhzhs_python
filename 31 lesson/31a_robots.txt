@@ -1,0 +1,1 @@
+"b'User-Agent: *\\nAllow: /\\nHost: www.virtualsoccer.ru\\n'"
