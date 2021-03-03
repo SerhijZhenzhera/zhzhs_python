@@ -12,6 +12,7 @@ base_url = 'https://api.pushshift.io/reddit/comment/search/'
 
 data = requests.get(base_url, {'subreddit': 'high'+'heels'})
 f = open('31b.txt', 'a', encoding='utf-8')
+# result = data.json()
 for d in data:
     f.write(str(d))
 f.close()
