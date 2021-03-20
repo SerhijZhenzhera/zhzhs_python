@@ -38,10 +38,11 @@ if __name__ == "__main__":
 
     path_1 = "C:\\Users\\Regina\\Desktop\\17-20 results\\37\\hr.db"
     path_2 = "C:\\Users\\Regina\\Desktop\\17-20 results\\37\\37_lesson.db"
+    path_3 = "C:\\Users\\Regina\\Desktop\\17-20 results\\37\\hr_1.db"
 
     query_general(path_1)
     query_general(path_2)
-
+    query_general(path_3)
 
 '''
 ---output---
@@ -50,4 +51,8 @@ C:\Users\Regina\Desktop\17-20 results\37\37_lesson.db full tables list -> [('spr
 ___Details for path --- C:\Users\Regina\Desktop\17-20 results\37\37_lesson.db ---
 ______Table for check: sproba
 _________Table 'sproba' contains: [(1, 5, 'smile', '-----', 0), (3, 9, 'ultra', '!!!', '*')]
+C:\Users\Regina\Desktop\17-20 results\37\hr_1.db full tables list -> [('countries',), ('regions',), ('locations',), ('departments',), ('jobs',), ('employees',), ('department',), ('job_history',), ('prod_mast',), ('prod_backup',), ('orders',), ('tb1',), ('ESERCICIO1',), ('users',), ('tags',), ('s',), ('r',), ('Emor',), ('MIN_SALARY',), ('employee_data',), ('STUDENT',), ('EMPLOYEE_INCOME',), ('details',)]
+___Details for path --- C:\Users\Regina\Desktop\17-20 results\37\hr_1.db ---
+______Table for check: countries
+_________Table 'countries' contains: [('country_id', 'country_name', 'region_id'), ('AR', 'Argentina', 2), ('AU', 'Australia', 3), ('BE', 'Belgium', 1), ('BR', 'Brazil', 2), ('CA', 'Canada', 2), ('CH', 'Switzerland', 1), ('CN', 'China', 3), ('DE', 'Germany', 1), ('DK', 'Denmark', 1), ('EG', 'Egypt', 4), ('FR', 'France', 1), ('HK', 'HongKong', 3), ('IL', 'Israel', 4), ('IN', 'India', 3), ('IT', 'Italy', 1), ('JP', 'Japan', 3), ('KW', 'Kuwait', 4), ('MX', 'Mexico', 2), ('NG', 'Nigeria', 4), ('NL', 'Netherlands', 1), ('SG', 'Singapore', 3), ('UK', 'United Kingdom', 1), ('US', 'United States of America', 2), ('ZM', 'Zambia', 4), ('ZW', 'Zimbabwe', 4)]
 '''
