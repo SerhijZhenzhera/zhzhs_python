@@ -40,13 +40,13 @@ zvjazok.commit()
 nakaz.execute("ALTER TABLE trrry RENAME TO sproba;")
 zvjazok.commit()
 
+
+# ----- PRINT -----
+
 nakaz.execute("SELECT * FROM sproba;")
 one_result = nakaz.fetchone()
 for _ in one_result:
     print('---1---', _)
-
-
-# ----- PRINT -----
 
 nakaz.execute("SELECT * FROM sproba;")
 one_result = nakaz.fetchone()
