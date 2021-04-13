@@ -143,6 +143,7 @@ def soccer_team(name, current_round, base_team=None):
         break
 
     selected_team = []
+    a_match_team = []
     for a_number_pl in a_numbers_team:
         for base_pl in base_team:
             if a_number_pl == base_pl.number:
