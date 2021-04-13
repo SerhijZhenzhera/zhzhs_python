@@ -3,12 +3,18 @@ import random
 cup_round = ['1/16', '1/8', 'quarterfinal', 'semifinal', 'final', 'CUP']
 mood = ['♠', '♣', '♥', '♦']
 a_formations = [['GK', 'LD', 'CD_1', 'RD', 'LM', 'DM_1', 'CM_1', 'RM', 'LF', 'CF', 'RF'],
-                ['GK', 'LD', 'CD_1', 'RD', 'LM', 'DM_1', 'CM_1', 'AM', 'RM', 'LF', 'RF'],
-                ['GK', 'LD', 'CD_1', 'RD', 'LW', 'DM_1', 'DM_2', 'CM_1', 'CM_2', 'RW', 'CF'],
-                ['GK', 'LD', 'CD_1', 'CD_2', 'RD', 'LM', 'CM_1', 'RM', 'LF', 'CF', 'RF'],
-                ['GK', 'LD', 'CD_1', 'CD_2', 'RD', 'LM', 'CM_1', 'AM', 'RM', 'LF', 'RF'],
-                ['GK', 'LD', 'CD_1', 'CD_2', 'RD', 'LM', 'DM_1', 'CM_1', 'AM', 'RM', 'CF'],
-                ['GK', 'SW', 'LD', 'CD_1', 'CD_2', 'RD', 'LM', 'AM', 'RM', 'LF', 'RF'],
+                ['GK', 'LD', 'CD_1', 'RD', 'LM', 'DM_1',
+                    'CM_1', 'AM', 'RM', 'LF', 'RF'],
+                ['GK', 'LD', 'CD_1', 'RD', 'LW', 'DM_1',
+                    'DM_2', 'CM_1', 'CM_2', 'RW', 'CF'],
+                ['GK', 'LD', 'CD_1', 'CD_2', 'RD', 'LM',
+                    'CM_1', 'RM', 'LF', 'CF', 'RF'],
+                ['GK', 'LD', 'CD_1', 'CD_2', 'RD', 'LM',
+                    'CM_1', 'AM', 'RM', 'LF', 'RF'],
+                ['GK', 'LD', 'CD_1', 'CD_2', 'RD', 'LM',
+                    'DM_1', 'CM_1', 'AM', 'RM', 'CF'],
+                ['GK', 'SW', 'LD', 'CD_1', 'CD_2',
+                    'RD', 'LM', 'AM', 'RM', 'LF', 'RF'],
                 ['GK', 'SW', 'LD', 'CD_1', 'CD_2', 'RD', 'LM', 'CM_1', 'AM', 'RM', 'CF']]
 
 
@@ -56,9 +62,9 @@ def soccer_team(name, current_round, base_team=None):
         b_match_team = [['GK', bb], ['LD', bb], ['CD_1', bb], ['RD', bb], ['LM', bb], [
             'DM_1', bb], ['CM_1', bb], ['RM', bb], ['LF', bb], ['CF', bb], ['RF', bb]]
 
-
     class Player:
         number = 0
+
         def __init__(self):
             self.__class__.number += 1
             self.number = self.__class__.number
@@ -67,31 +73,36 @@ def soccer_team(name, current_round, base_team=None):
             self.right = random.randint(31, 200) / 100
             self.center = random.randint(31, 200) / 100
             self.mood = random.choice(mood)
-            if self.number in [1, 22, 23]: # goalkeepers
+            if self.number in [1, 22, 23]:  # goalkeepers
                 self.attack = random.randint(1, 50)
                 self.middle = random.randint(1, 75)
                 self.keeper = random.randint(51, 150)
             else:
                 self.attack = random.randint(1, 100)
                 self.middle = random.randint(1, 100)
-                self.keeper = random.randint(1, 100)     
+                self.keeper = random.randint(1, 100)
+
         def __repr__(self):
             return f'\n number {self.number} - attack {self.attack}, middle {self.middle}, defence {self.defence}, keeper {self.keeper}, left {self.left}, right {self.right}, center {self.center}, mood {self.mood}'
 
     # базовая информация о противнике и наборе своих игроков
     if current_round == 0:
-        base_team = [Player() for _ in range (23)]
-    print(f"Your opponet's average strength is {b_team[current_round]} with {b_team_formations} formation")
-    print(f"Your players (numbers 1, 22 and 23 have advanced keeper's skills): {base_team}")    
+        base_team = [Player() for _ in range(23)]
+    print(
+        f"Your opponet's average strength is {b_team[current_round]} with {b_team_formations} formation")
+    print(
+        f"Your players (numbers 1, 22 and 23 have advanced keeper's skills): {base_team}")
     print(f'Choose formation for your team: \n    number_1 3-4-3: {a_formations[0]} \n    number_2 3-5-2: {a_formations[1]} \n\
     number_3 3-6-1: {a_formations[2]} \n    number_4 4-3-3: {a_formations[3]} \n    number_5 4-4-2: {a_formations[4]} \n\
     number_6 4-5-1: {a_formations[5]} \n    number_7 5-3-2: {a_formations[6]} \n    number_8 5-4-1: {a_formations[7]}')
-    
+
     # выбор тактической схемы на матч
     while True:
-        a_match_formation_number = input('Choose your formation number or Q from this CUP ').lower()
+        a_match_formation_number = input(
+            'Choose your formation number or Q from this CUP ').lower()
         if a_match_formation_number in ['1', '2', '3', '4', '5', '6', '7', '8']:
-            print(f"Your team's formation {a_formations[int(a_match_formation_number) - 1]}")
+            print(
+                f"Your team's formation {a_formations[int(a_match_formation_number) - 1]}")
             a_match_formation = a_formations[int(a_match_formation_number) - 1]
             break
         elif a_match_formation_number == 'q':
@@ -99,10 +110,10 @@ def soccer_team(name, current_round, base_team=None):
             return
         else:
             print('Make the right choice, please!')
-            continue 
-    
+            continue
+
     # выбор 11 футболистов на матч
-    print("Choose 11 numbers of your players in accordance with position's list. For example: 1 2 1. Or 0 to quit from this CUP")
+    print("Choose 11 numbers of your players in accordance with position's list. For example: 1 2 10. Or 0 to quit from this CUP")
     while True:
         try:
             a_numbers_team = [int(x) for x in input().split()]
@@ -123,14 +134,13 @@ def soccer_team(name, current_round, base_team=None):
                     for ___ in range(__+1, 11):
                         if a_numbers_team[__] == a_numbers_team[___]:
                             print('All 11 players must be different!')
-                            checked = False      
+                            checked = False
                 if checked == False:
                     continue
         except:
             print('Make the right choice, please!')
             continue
         break
-
 
     selected_team = []
     for a_number_pl in a_numbers_team:
@@ -139,14 +149,14 @@ def soccer_team(name, current_round, base_team=None):
                 selected_team.append(base_pl)
     # print(selected_team)
 
-    
     for s_pl in selected_team:
         i = selected_team.index(s_pl)
         if a_match_formation[i] == 'GK':
             a_player = ['GK', s_pl.keeper, s_pl.mood]
             a_match_team.append(a_player)
         if a_match_formation[i] in ['SW', 'CD_1', 'CD_2']:
-            a_player = [a_match_formation[i], s_pl.defence * s_pl.center, s_pl.mood]
+            a_player = [a_match_formation[i],
+                        s_pl.defence * s_pl.center, s_pl.mood]
             a_match_team.append(a_player)
         if a_match_formation[i] == 'LD':
             a_player = ['LD', s_pl.defence * s_pl.left, s_pl.mood]
@@ -155,13 +165,16 @@ def soccer_team(name, current_round, base_team=None):
             a_player = ['RD', s_pl.defence * s_pl.right, s_pl.mood]
             a_match_team.append(a_player)
         if a_match_formation[i] in ['DM_1', 'DM_2', 'CM_1', 'CM_2', 'AM']:
-            a_player = [a_match_formation[i], s_pl.middle * s_pl.center, s_pl.mood]
+            a_player = [a_match_formation[i],
+                        s_pl.middle * s_pl.center, s_pl.mood]
             a_match_team.append(a_player)
         if a_match_formation[i] in ['LM', 'LW']:
-            a_player = [a_match_formation[i], s_pl.middle * s_pl.left, s_pl.mood]
+            a_player = [a_match_formation[i],
+                        s_pl.middle * s_pl.left, s_pl.mood]
             a_match_team.append(a_player)
         if a_match_formation[i] in ['RM', 'RW']:
-            a_player = [a_match_formation[i], s_pl.middle * s_pl.right, s_pl.mood]
+            a_player = [a_match_formation[i],
+                        s_pl.middle * s_pl.right, s_pl.mood]
             a_match_team.append(a_player)
         if a_match_formation[i] == 'LF':
             a_player = ['LF', s_pl.attack * s_pl.left, s_pl.mood]
@@ -178,24 +191,31 @@ def soccer_team(name, current_round, base_team=None):
 
 
 def soccer_mood(a_match_team, b_match_team, name, current_round, base_team):
-    
+
     a_match_team_improved = a_match_team
     for a_1 in a_match_team_improved:
         for a_2 in a_match_team_improved:
-            check_1_1 = (a_1[0] != a_2[0]) # чтобы игрок не усиливал сам себя
-            check_1_2 = (a_1[2] == a_2[2]) # если одинаковый настрой на сезон
-            check_2 = (a_1[0] in ['GK', 'SW', 'CD_1', 'CD_2']) and (a_2[0] in ['GK', 'SW', 'CD_1', 'CD_2']) # коллеги по обороне
-            check_3 = (a_1[0] in ['DM_1', 'DM_2', 'CM_1', 'CM_2']) and (a_2[0] in ['DM_1', 'DM_2', 'CM_1', 'CM_2']) # коллеги по опорной зоне
-            check_4 = (a_1[0] in ['CM_1', 'CM_2', 'AM', 'CF']) and (a_2[0] in ['CM_1', 'CM_2', 'AM', 'CF']) # коллеги по центру атаки
-            check_5 = (a_1[0] in ['LD', 'LM', 'LF']) and (a_2[0] in ['LD', 'LM', 'LF']) # коллеги по левому флангу
-            check_6 = (a_1[0] in ['RD', 'RM', 'RF']) and (a_2[0] in ['RD', 'RM', 'RF']) # коллеги по правому флангу
-            if all([check_1_1, check_1_2]): 
+            check_1_1 = (a_1[0] != a_2[0])  # чтобы игрок не усиливал сам себя
+            check_1_2 = (a_1[2] == a_2[2])  # если одинаковый настрой на сезон
+            check_2 = (a_1[0] in ['GK', 'SW', 'CD_1', 'CD_2']) and (
+                a_2[0] in ['GK', 'SW', 'CD_1', 'CD_2'])  # коллеги по обороне
+            check_3 = (a_1[0] in ['DM_1', 'DM_2', 'CM_1', 'CM_2']) and (
+                a_2[0] in ['DM_1', 'DM_2', 'CM_1', 'CM_2'])  # коллеги по опорной зоне
+            check_4 = (a_1[0] in ['CM_1', 'CM_2', 'AM', 'CF']) and (
+                a_2[0] in ['CM_1', 'CM_2', 'AM', 'CF'])  # коллеги по центру атаки
+            check_5 = (a_1[0] in ['LD', 'LM', 'LF']) and (
+                a_2[0] in ['LD', 'LM', 'LF'])  # коллеги по левому флангу
+            check_6 = (a_1[0] in ['RD', 'RM', 'RF']) and (
+                a_2[0] in ['RD', 'RM', 'RF'])  # коллеги по правому флангу
+            if all([check_1_1, check_1_2]):
                 if any([check_2, check_3, check_4, check_5, check_6]):
                     print(f'YESSS! {a_1[0]} {a_2[0]}')
-                    a_1[1] *= 1.25 # игрок получает +25% к силе за коллегу с таким же настроем на сезон
+                    # игрок получает +25% к силе за коллегу с таким же настроем на сезон
+                    a_1[1] *= 1.25
 
     print(f'Improved PLAYER team: {a_match_team_improved}')
-    soccer_gra(a_match_team_improved, b_match_team, name, current_round, base_team)
+    soccer_gra(a_match_team_improved, b_match_team,
+               name, current_round, base_team)
 
 
 def soccer_gra(pl_match_team, cm_match_team, name, current_round, base_team):
@@ -482,6 +502,7 @@ def soccer_gra(pl_match_team, cm_match_team, name, current_round, base_team):
 def soccer_end():
     print("Let's have a rest...")
     return
+
 
 if __name__ == '__main__':
 
